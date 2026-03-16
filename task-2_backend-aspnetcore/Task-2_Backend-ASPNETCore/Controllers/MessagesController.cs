@@ -41,4 +41,23 @@ public class MessagesController(IMapper mapper, MessagesContext messagesContext)
 
         return Ok(questionMessageDto);
     }
+
+    [HttpPost("administrative-change")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [Produces(MediaTypeNames.Application.Json)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<AdministrativeChangeMessageDto>> PostAdministrativeChangeMessage(
+        [FromBody] AdministrativeChangeMessageCreateDto administrativeChangeMessageCreateDto
+    )
+    {
+        AdministrativeChangeMessage administrativeChangeMessage = mapper.Map<AdministrativeChangeMessage>(administrativeChangeMessageCreateDto);
+
+        await messagesContext.AdministrativeChangeMessages.AddAsync(administrativeChangeMessage);
+        await messagesContext.SaveChangesAsync();
+
+        var administrativeChangeMessageDto = mapper.Map<AdministrativeChangeMessageDto>(administrativeChangeMessage);
+
+        return Ok(administrativeChangeMessageDto);
+    }
 }
