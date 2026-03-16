@@ -18,6 +18,9 @@ public class MessagesController(IMapper mapper, MessagesContext messagesContext)
         {
             QuestionMessages = mapper.Map<List<QuestionMessageDto>>(
                 await messagesContext.QuestionMessages.ToListAsync()
+            ),
+            AdministrativeChangeMessages = mapper.Map<List<AdministrativeChangeMessageDto>>(
+                await messagesContext.AdministrativeChangeMessages.ToListAsync()
             )
         };
 
