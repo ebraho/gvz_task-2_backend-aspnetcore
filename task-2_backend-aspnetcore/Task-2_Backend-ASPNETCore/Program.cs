@@ -2,11 +2,13 @@ using GVZ.Task2BackendASPNETCore;
 using Mapster;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
 builder.Services.AddMapster();
 builder.Services.AddDbContext<MessagesContext>(opt => opt.UseInMemoryDatabase("Messages"));
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
