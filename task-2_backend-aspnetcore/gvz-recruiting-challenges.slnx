@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Task-2_Backend-ASPNETCore/Task-2_Backend-ASPNETCore.csproj" />
+  <Project Path="Task-2_Backend-ASPNETCore.Tests/Task-2_Backend-ASPNETCore.Tests.csproj" />
+</Solution>

@@ -1,0 +1,19 @@
+<app-part-demo
+  [label]="label"
+  [description]="description"
+  [parameters]="parameters"
+>
+  <div class="example half">
+    <p class="label">ohne Einschränkung</p>
+    <app-number-input [control]="numberFormControl" label="Zahl" />
+  </div>
+  <div class="example half">
+    <p class="label">mit Einschränkung</p>
+    <app-number-input
+      [control]="numberConstrainedFormControl"
+      label="Zahl, mit Einschränkung"
+      [min]="1000"
+      [max]="9999"
+    />
+  </div>
+</app-part-demo>

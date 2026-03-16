@@ -1,0 +1,16 @@
+@use "@angular/material" as mat;
+
+.card {
+  min-height: 100px;
+  padding: 32px;
+  width: 100%;
+
+  @include mat.card-overrides(
+    (
+      filled-container-color: var(--mat-sys-surface-container-lowest),
+      filled-container-shape: 8px,
+      outlined-container-color: var(--mat-sys-surface-container-lowest),
+      outlined-container-shape: 8px,
+    )
+  );
+}

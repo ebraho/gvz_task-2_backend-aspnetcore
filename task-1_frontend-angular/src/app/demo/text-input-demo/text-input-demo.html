@@ -1,0 +1,38 @@
+<app-part-demo
+  [label]="label"
+  [description]="description"
+  [parameters]="parameters"
+>
+  <div class="example half">
+    <p class="label">Eine Zeile, ohne Einschränkung</p>
+    <app-text-input
+      [control]="textOneLineFormControl"
+      label="Text, eine Zeile"
+    />
+  </div>
+  <div class="example half">
+    <p class="label">Eine Zeile, mit Einschränkung</p>
+    <app-text-input
+      [control]="textOneLineConstrainedFormControl"
+      label="Text, eine Zeile, mit Einschränkung"
+      [maxLength]="10"
+    />
+  </div>
+  <div class="example half">
+    <p class="label">Mehrere Zeilen, ohne Einschränkung</p>
+    <app-text-input
+      [control]="textMultiLineFormControl"
+      label="Text, mehrere Zeilen"
+      [multiline]="true"
+    />
+  </div>
+  <div class="example half">
+    <p class="label">Mehrere Zeilen, mit Einschränkung</p>
+    <app-text-input
+      [control]="textMultiLineConstrainedFormControl"
+      label="Text, mehrere Zeilen, mit Einschränkung"
+      [maxLength]="120"
+      [multiline]="true"
+    />
+  </div>
+</app-part-demo>

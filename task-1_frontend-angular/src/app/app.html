@@ -1,0 +1,28 @@
+<mat-toolbar class="header sticky">
+  <a routerLink="/">
+    <img src="gvz-logo.svg" alt="gvz logo" class="logo" />
+  </a>
+  <span>Aufgabe 1 - Frontend-Entwicklung mit Angular</span>
+</mat-toolbar>
+<mat-drawer-container class="container">
+  <mat-drawer mode="side" class="drawer" opened>
+    @for (section of navigationSections; track section.name) {
+      <p class="navigation-category mdc-list-item__primary-text">{{ section.name }}</p>
+      <mat-nav-list class="navigation-list">
+        @for (link of section.links; track link) {
+          <a
+            mat-list-item
+            class="navigation-link"
+            [routerLink]="link.path"
+            [activated]="activeNavigationLink === link.path"
+          >
+            {{ link.title }}
+          </a>
+        }
+      </mat-nav-list>
+    }
+  </mat-drawer>
+  <mat-drawer-content class="content">
+    <router-outlet />
+  </mat-drawer-content>
+</mat-drawer-container>

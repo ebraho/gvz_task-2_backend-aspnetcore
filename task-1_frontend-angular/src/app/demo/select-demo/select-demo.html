@@ -1,0 +1,23 @@
+<app-part-demo
+  [label]="label"
+  [description]="description"
+  [parameters]="parameters"
+>
+  <div class="example half">
+    <p class="label">ohne Einschränkung</p>
+    <app-select
+      [allowReset]="true"
+      [control]="selectFormControl"
+      label="Auswahl"
+      [options]="selectOptions"
+    />
+  </div>
+  <div class="example half">
+    <p class="label">mit Einschränkung</p>
+    <app-select
+      [control]="selectConstrainedFormControl"
+      label="Auswahl, mit Einschränkung"
+      [options]="selectOptions"
+    />
+  </div>
+</app-part-demo>

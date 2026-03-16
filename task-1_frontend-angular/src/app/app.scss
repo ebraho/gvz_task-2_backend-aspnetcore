@@ -1,0 +1,65 @@
+@use '@angular/material' as mat;
+
+.header {
+  display: flex;
+  gap: 32px;
+
+  @include mat.toolbar-overrides(
+    (
+      container-background-color: var(--mat-sys-surface-container-lowest),
+      standard-height: 56px,
+    )
+  );
+
+  &.sticky {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+
+  .logo {
+    height: 32px;
+  }
+}
+
+.container {
+  background-color: var(--mat-sys-background);
+  display: flex;
+  height: calc(100vh - 56px);
+  margin-top: 56px;
+
+  @include mat.sidenav-overrides(
+    (
+      container-background-color: var(--mat-sys-surface-container-lowest),
+      container-shape: 0,
+      container-width: 240px,
+    )
+  );
+
+  .drawer {
+    padding: 0 16px;
+
+    .navigation-category {
+      align-items: center;
+      display: flex;
+      height: 48px;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .navigation-list {
+      padding: 0;
+    }
+
+    .navigation-link {
+      border-radius: 0;
+    }
+  }
+
+  .content {
+    padding: 16px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,39 @@
+<app-part-demo [label]="label" [description]="description" [parameters]="[]">
+  <div class="example full">
+    <app-card>
+      <form [formGroup]="addressForm" class="address-form">
+        <div class="example half">
+          <app-text-input
+            label="Strasse"
+            [control]="streetControl"
+            [maxLength]="100"
+          ></app-text-input>
+        </div>
+        <div class="example half">
+          <app-number-input
+            label="Nr."
+            [control]="houseNumberControl"
+            [min]="1"
+            [max]="99999"
+          ></app-number-input>
+        </div>
+
+        <div class="example half">
+          <app-number-input
+            label="PLZ"
+            [control]="zipCodeControl"
+            [min]="1000"
+            [max]="9999"
+          ></app-number-input>
+        </div>
+        <div class="example half">
+          <app-text-input label="Ort" [control]="cityControl" [maxLength]="100"></app-text-input>
+        </div>
+
+        <div class="example full">
+          <app-select label="Kanton" [control]="cantonControl" [options]="cantons"></app-select>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</app-part-demo>

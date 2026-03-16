@@ -1,0 +1,21 @@
+<mat-form-field
+  appearance="outline"
+  floatLabel="always"
+  class="number-input-container"
+>
+  <mat-label>{{ label() }}</mat-label>
+  <input
+    matInput
+    [formControl]="control()"
+    [attr.min]="min()"
+    [attr.max]="max()"
+    type="number"
+  />
+  @if (min() !== null || max() !== null) {
+  <mat-hint align="end">{{ validRangeString }}</mat-hint>
+  } @if (control().hasError('required')) {
+  <mat-error>Erforderlich</mat-error>
+  } @if (control().hasError('min') || control().hasError('max')) {
+  <mat-error>Ungültiger Wert: {{ validRangeString }}</mat-error>
+  }
+</mat-form-field>

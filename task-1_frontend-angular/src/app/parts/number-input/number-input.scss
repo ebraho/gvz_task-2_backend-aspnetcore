@@ -1,0 +1,11 @@
+@use "@angular/material" as mat;
+
+.number-input-container {
+  width: 100%;
+
+  @include mat.form-field-overrides(
+    (
+      outlined-container-shape: 0px,
+    )
+  );
+}

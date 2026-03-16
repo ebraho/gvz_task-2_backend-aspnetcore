@@ -1,0 +1,27 @@
+<mat-form-field
+  appearance="outline"
+  floatLabel="always"
+  class="text-input-container"
+>
+  <mat-label>{{ label() }}</mat-label>
+  @if (!multiline()) {
+  <input
+    matInput
+    [formControl]="control()"
+    [attr.maxLength]="maxLength()"
+    type="text"
+  />
+  } @else {
+  <textarea
+    matInput
+    [formControl]="control()"
+    [attr.maxLength]="maxLength()"
+  ></textarea>
+  } @if (maxLength() !== null) {
+  <mat-hint align="end">
+    {{control().value?.length}}/{{ maxLength() }}</mat-hint
+  >
+  } @if (control().hasError('required')) {
+  <mat-error>Erforderlich</mat-error>
+  }
+</mat-form-field>
